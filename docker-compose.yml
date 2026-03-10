@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Serviço MongoDB
+  mongo:
+    image: mongo:6
+    container_name: mongodb_jitterbit
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+
+  # Serviço da API Node.js
+  api:
+    build: .
+    container_name: api_jitterbit
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - PORT=3000
+      # Aponta para o serviço Mongo no Docker Network
+      - MONGODB_URI=mongodb://mongo:27017/order-management
+      - JWT_SECRET=s3cr3t_jwt_k3y_t3st3_t3cn1c0_2024
+    depends_on:
+      - mongo
+
+# Definição de volumes persistentes
+volumes:
+  mongodb_data:

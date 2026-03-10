@@ -1,0 +1,32 @@
+opencollection: 1.0.0
+
+info:
+  name: Order Management API
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  variables:
+    - name: base_url
+      value: http://localhost:3000
+    - name: jwt_token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWY3N2JiOWU5ZTJlYjZjYTUyNjliMCIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NzMxMDcxNDksImV4cCI6MTc3MzE5MzU0OX0.FmMPNfoz8UaTvb48tAzs9I4R9GgGWC5HHYDCeTpoBV0
+
+docs:
+  content: API RESTful para criação, leitura, atualização e exclusão de pedidos.
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

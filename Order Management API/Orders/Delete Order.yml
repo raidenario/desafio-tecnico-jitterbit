@@ -1,0 +1,17 @@
+info:
+  name: Delete Order
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/order/v10089015vdb-01"
+  auth:
+    type: bearer
+    token: "{{jwt_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
